@@ -1,6 +1,7 @@
 'use strict'
 
-window.onload = () => {
+
+
 const one = document.createElement("h2");
 one.textContent = "One";
 one.style = "text-align:center;";
@@ -17,9 +18,13 @@ const info = document.createElement("textarea");
 info.style = "float:right; margin-right:65%;"
 
 const knapp = document.createElement("button");
+knapp.id = "add"
 
 knapp.style = "margin-left:10%; margin-top:15px;"
 knapp.innerHTML = "Add Data";
+
+window.onload = () => {
+
 
 document.getElementById("one").appendChild(one);
 document.getElementById("one").appendChild(text);
@@ -30,16 +35,25 @@ document.getElementById("one").appendChild(knapp);
 
 }
 
+
+
+
 let carArray = [];
 
+
 knapp.onclick = () => 
-{
-        carArray.push(textbox1.value);
+{       
+        if (textbox1.value === carArray.value){
+            return;
+        }
+        else {
+            carArray.push(textbox1.value);
+        }
+        
     }
 
 
+   
 
-
-function Unik(value, index, self){
-    return self.indexOf(value) === index;
-}
+// function Unik(value, index, self){
+//     return self.indexOf(value) === index;
